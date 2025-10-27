@@ -1,6 +1,7 @@
 <?php $title = "Detail Pesanan - Admin"; ?>
 <?php include 'app/views/layout/header.php'; ?>
 
+<main>
 <div class="container">
     <h2>Detail Pesanan #<?php echo $_GET['id']; ?></h2>
     
@@ -40,5 +41,6 @@
     
     <a href="index.php?page=admin&action=orders" class="btn btn-secondary">Kembali ke Pesanan</a>
 </div>
+</main>
 
 <?php include 'app/views/layout/footer.php'; ?>

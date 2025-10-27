@@ -3,6 +3,7 @@ require_once 'app/models/Category.php';
 require_once 'app/models/Book.php';
 require_once 'app/models/User.php';
 require_once 'app/models/Order.php';
+require_once 'app/models/Message.php';
 
 class AdminController {
     private $db;
@@ -117,6 +118,12 @@ class AdminController {
         $orderModel = new Order($this->db);
         $order_items = $orderModel->getOrderItems($_GET['id']);
         require_once 'app/views/admin/order_detail.php';
+    }
+
+    public function messages() {
+        $messageModel = new Message($this->db);
+        $messages = $messageModel->getAll();
+        require_once 'app/views/admin/messages.php';
     }
 
     private function uploadImage() {

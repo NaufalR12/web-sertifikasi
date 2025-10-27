@@ -20,10 +20,10 @@
         <h2>Kategori Buku</h2>
         <div class="category-list">
             <?php foreach($categories as $category): ?>
-                <div class="category-card">
+                <a href="index.php?page=book&action=search&keyword=<?php echo urlencode($category['name']); ?>" class="category-card">
                     <h3><?php echo htmlspecialchars($category['name']); ?></h3>
                     <p><?php echo htmlspecialchars($category['description']); ?></p>
-                </div>
+                </a>
             <?php endforeach; ?>
         </div>
     </div>
