@@ -15,10 +15,17 @@
                 
                 <div class="form-group">
                     <label>Metode Pembayaran</label>
-                    <select name="payment_method">
+                    <select name="payment_method" required>
                         <option value="COD">Cash on Delivery (Bayar saat terima)</option>
+                        <option value="QRIS">QRIS (Scan QR, bayar online)</option>
+                        <option value="TRANSFER">Transfer Bank</option>
                     </select>
-                    <small>Pembayaran dilakukan saat buku diterima</small>
+                    <small>
+                        Pilih metode pembayaran:<br>
+                        - COD: Pembayaran dilakukan saat buku diterima.<br>
+                        - QRIS: Scan QR untuk pembayaran online.<br>
+                        - Transfer: Transfer ke rekening bank yang akan diinformasikan.
+                    </small>
                 </div>
                 
                 <button type="submit" class="btn btn-primary btn-lg">Konfirmasi Pesanan</button>

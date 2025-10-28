@@ -22,6 +22,7 @@ class OrderController {
             
             $user_id = $_SESSION['user_id'];
             $shipping_address = $_POST['shipping_address'];
+            $payment_method = isset($_POST['payment_method']) ? $_POST['payment_method'] : 'COD';
             $cart = $_SESSION['cart'];
             $total = 0;
 
@@ -30,7 +31,7 @@ class OrderController {
                 $total += $book['price'] * $quantity;
             }
 
-            $order_id = $orderModel->create($user_id, $total, $shipping_address);
+            $order_id = $orderModel->create($user_id, $total, $shipping_address, $payment_method);
 
             if($order_id) {
                 foreach($cart as $book_id => $quantity) {

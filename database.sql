@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS bookstore;
 USE bookstore;
 
--- Tabel Users
+
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabel Categories
+
 CREATE TABLE categories (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE categories (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabel Books
+
 CREATE TABLE books (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(200) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE books (
     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
 );
 
--- Tabel Orders
+
 CREATE TABLE orders (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE orders (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
--- Tabel Order Items
+
 CREATE TABLE order_items (
     id INT PRIMARY KEY AUTO_INCREMENT,
     order_id INT NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE order_items (
     FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE
 );
 
--- Tabel Messages (Contact)
+
 CREATE TABLE messages (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
@@ -71,11 +71,11 @@ CREATE TABLE messages (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
 );
 
--- Insert default admin
+
 INSERT INTO users (username, email, password, full_name, role) 
 VALUES ('admin', 'admin@bookstore.com', MD5('admin123'), 'Administrator', 'admin');
 
--- Insert sample categories
+
 INSERT INTO categories (name, description) VALUES 
 ('Fiction', 'Novel dan cerita fiksi'),
 ('Non-Fiction', 'Buku pengetahuan dan fakta'),

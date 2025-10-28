@@ -7,10 +7,10 @@ class Order {
         $this->conn = $db;
     }
 
-    public function create($user_id, $total_amount, $shipping_address) {
-        $query = "INSERT INTO " . $this->table . " (user_id, total_amount, shipping_address) VALUES (?, ?, ?)";
+    public function create($user_id, $total_amount, $shipping_address, $payment_method = 'COD') {
+        $query = "INSERT INTO " . $this->table . " (user_id, total_amount, shipping_address, payment_method) VALUES (?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("ids", $user_id, $total_amount, $shipping_address);
+        $stmt->bind_param("idss", $user_id, $total_amount, $shipping_address, $payment_method);
         if($stmt->execute()) {
             return $this->conn->insert_id;
         }
