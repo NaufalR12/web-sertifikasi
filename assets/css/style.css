@@ -19,7 +19,6 @@ main {
   flex-grow: 1;
 }
 
-/* Container: batasi lebar dan beri jarak dari pinggir */
 .container {
   width: 90%;
   max-width: 1140px;
@@ -35,7 +34,6 @@ body {
   background-color: #f4f4f4;
 }
 
-/* Navbar */
 .navbar {
   background-color: #2c3e50;
   color: white;
@@ -86,7 +84,6 @@ body {
   margin-left: 5px;
 }
 
-/* Hero Section */
 .hero {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -101,7 +98,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* Search Box */
 .search-box {
   margin: 30px 0;
 }
@@ -135,7 +131,6 @@ body {
   background-color: #2980b9;
 }
 
-/* Categories */
 .categories {
   margin: 40px 0;
 }
@@ -204,7 +199,6 @@ body {
   color: #fff;
 }
 
-/* Books Grid */
 .books {
   margin: 40px 0;
 }
@@ -322,7 +316,6 @@ body {
   min-width: 0;
 }
 
-/* Buttons */
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -387,7 +380,6 @@ body {
   width: 100%;
 }
 
-/* Auth Forms */
 .auth-form {
   max-width: 400px;
   margin: 50px auto;
@@ -443,7 +435,6 @@ body {
   margin-top: 20px;
 }
 
-/* Alerts */
 .alert {
   padding: 15px;
   border-radius: 5px;
@@ -462,7 +453,6 @@ body {
   border: 1px solid #f5c6cb;
 }
 
-/* Book Detail */
 .book-detail {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -518,7 +508,6 @@ body {
   font-size: 1.2rem;
 }
 
-/* Cart */
 .cart-table {
   width: 100%;
   background: white;
@@ -564,7 +553,6 @@ body {
   border-radius: 8px;
 }
 
-/* Checkout */
 .checkout-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -599,7 +587,6 @@ body {
   color: #27ae60;
 }
 
-/* Success Message */
 .success-message {
   text-align: center;
   background: white;
@@ -621,7 +608,6 @@ body {
   margin-top: 30px;
 }
 
-/* Orders Table */
 .orders-table {
   width: 100%;
   background: white;
@@ -677,7 +663,6 @@ body {
   border-radius: 8px;
 }
 
-/* Contact */
 .contact-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -716,7 +701,6 @@ body {
   box-sizing: border-box;
 }
 
-/* About Page */
 .about-section {
   background: white;
   padding: 40px;
@@ -762,7 +746,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* Admin Dashboard */
 .admin-header {
   display: flex;
   justify-content: space-between;
@@ -808,7 +791,6 @@ body {
   color: #7f8c8d;
 }
 
-/* Admin Tables */
 .admin-table {
   width: 100%;
   background: white;
@@ -833,7 +815,6 @@ body {
   background-color: #f8f9fa;
 }
 
-/* Admin Forms */
 .admin-form {
   max-width: 600px;
   background: white;
@@ -842,7 +823,6 @@ body {
   margin: 20px 0;
 }
 
-/* Footer */
 .footer {
   background-color: #2c3e50;
   color: white;
@@ -856,7 +836,7 @@ body {
   padding: 0;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .navbar .container {
     flex-direction: column;
