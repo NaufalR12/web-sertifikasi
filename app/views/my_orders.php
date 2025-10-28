@@ -12,21 +12,15 @@
                     <th>No. Pesanan</th>
                     <th>Tanggal</th>
                     <th>Total</th>
-                    <th>Status</th>
                     <th>Alamat Pengiriman</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($orders as $order): ?>
                 <tr>
-                    <td>#<?php echo $order['id']; ?></td>
+                    <td><?php echo $order['id']; ?></td>
                     <td><?php echo date('d/m/Y H:i', strtotime($order['created_at'])); ?></td>
                     <td>Rp <?php echo number_format($order['total_amount'], 0, ',', '.'); ?></td>
-                    <td>
-                        <span class="badge badge-<?php echo $order['status']; ?>">
-                            <?php echo ucfirst($order['status']); ?>
-                        </span>
-                    </td>
                     <td><?php echo htmlspecialchars(substr($order['shipping_address'], 0, 50)) . '...'; ?></td>
                 </tr>
                 <?php endforeach; ?>
