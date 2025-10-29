@@ -18,8 +18,26 @@ class BookController {
 
     public function search() {
         $bookModel = new Book($this->db);
-        $books = $bookModel->search($_GET['keyword']);
         $keyword = $_GET['keyword'];
+        
+        // Cek apakah keyword adalah nama kategori
+        $categoryModel = new Category($this->db);
+        $categories = $categoryModel->getAll();
+        $isCategorySearch = false;
+        
+        foreach($categories as $cat) {
+            if(strtolower($cat['name']) == strtolower($keyword)) {
+                $isCategorySearch = true;
+                break;
+            }
+        }
+        
+        if($isCategorySearch) {
+            $books = $bookModel->searchByCategory($keyword);
+        } else {
+            $books = $bookModel->search($keyword);
+        }
+        
         require_once 'app/views/search.php';
     }
 }

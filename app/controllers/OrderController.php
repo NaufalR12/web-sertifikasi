@@ -63,5 +63,16 @@ class OrderController {
         $orders = $orderModel->getByUserId($_SESSION['user_id']);
         require_once 'app/views/my_orders.php';
     }
+
+    public function detail() {
+        if(!isset($_SESSION['user_id'])) {
+            header('Location: index.php?page=auth&action=login');
+            exit();
+        }
+
+        $orderModel = new Order($this->db);
+        $order_items = $orderModel->getOrderItems($_GET['id']);
+        require_once 'app/views/order_detail.php';
+    }
 }
 ?>

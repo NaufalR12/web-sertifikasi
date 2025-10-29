@@ -27,9 +27,19 @@ class Book {
         $searchTerm = "%" . $keyword . "%";
         $query = "SELECT b.*, c.name as category_name FROM " . $this->table . " b 
                   LEFT JOIN categories c ON b.category_id = c.id 
-                  WHERE b.title LIKE ? OR b.author LIKE ? OR c.name LIKE ?";
+                  WHERE b.title LIKE ? OR b.author LIKE ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("sss", $searchTerm, $searchTerm, $searchTerm);
+        $stmt->bind_param("ss", $searchTerm, $searchTerm);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function searchByCategory($categoryName) {
+        $query = "SELECT b.*, c.name as category_name FROM " . $this->table . " b 
+                  LEFT JOIN categories c ON b.category_id = c.id 
+                  WHERE c.name = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $categoryName);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
